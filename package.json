@@ -1,5 +1,5 @@
 {
-  "name": "node-pip",
+  "name": "ncpy-pip",
   "description": "Pip port to install Python packages for node-cpython.",
   "version": "0.1.0-pre-alpha.1",
   "dependencies": {},
@@ -26,6 +26,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:eljefedelrodeodeljefe/node-pip.git"
+    "url": "git@github.com:eljefedelrodeodeljefe/ncpy-pip.git"
   }
 }
