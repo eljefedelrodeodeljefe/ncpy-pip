@@ -1,0 +1,64 @@
+#!/usr/bin/env node
+'use strict'
+const pip = require('../')
+let allowedFlags = [
+  '--help'
+]
+
+
+let argv = process.argv
+
+parse(argv)
+
+function parse(arr) {
+  // check if you should go into repl mode
+  argv.length === 2 ? pyRepl() : 0;
+
+  let f = flags(arr)
+
+  f.description ? description() : 0;
+}
+
+function flags(arr) {
+  let hasHelp = false
+  let flags = []
+
+  arr.forEach(function(el) {
+    let arg = el.trim()
+    let f = arg.match(/(\-\-)\w+/g)
+    let h = arg.match(/(\-\-)help/g)
+
+    if (f) {
+      // push match onto the stack
+      flags = Array.prototype.concat(flags, f)
+      // additionally check whether description is required
+      if (h) hasHelp = true
+    }
+  })
+  return {
+    flags: flags,
+    description: hasHelp
+  }
+}
+
+function version () {
+
+}
+
+
+function description() {
+  let desc = [
+    "",
+    "Usage: node-pip [options] python_module",
+    "",
+    "Pip port to install Python packages for node-cpython.",
+    "",
+    "Options:",
+    "",
+    "\t-h, --help           output usage information",
+    "\t-v, --version        output version of node-pip",
+    ""
+  ].forEach(function (el) {
+      console.log("\t" + el);
+  })
+}
