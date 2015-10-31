@@ -1,7 +1,7 @@
 {
   "name": "node-pip",
   "description": "Pip port to install Python packages for node-cpython.",
-  "version": "0.0.0",
+  "version": "0.1.0-pre-alpha.1",
   "dependencies": {},
   "scripts": {
     "lint": "eslint -f unix .",
